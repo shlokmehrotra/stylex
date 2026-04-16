@@ -37,11 +37,13 @@ const styles = stylex.create({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
+    gap: '0.45rem',
+    minWidth: 180,
     paddingBlock: '1rem',
-    paddingInline: '2rem',
-    fontWeight: 400,
+    paddingInline: '2.25rem',
+    fontWeight: 600,
+    letterSpacing: '0.01em',
     whiteSpace: 'nowrap',
-    // color: vars['--color-fd-background'],
     textDecoration: {
       default: 'none',
       ':hover': 'none',
@@ -49,18 +51,22 @@ const styles = stylex.create({
     backgroundColor: 'transparent',
     borderColor: 'currentColor',
     borderStyle: 'solid',
-    borderWidth: 2,
-    borderRadius: 10,
-    scale: {
-      default: '1',
-      ':hover': '1.02',
-      ':active': '0.98',
+    borderWidth: 1,
+    borderRadius: 999,
+    boxShadow: {
+      default: '0 10px 30px rgba(15, 23, 42, 0.16)',
+      ':hover': '0 16px 36px rgba(15, 23, 42, 0.2)',
+    },
+    transform: {
+      default: 'translateY(0)',
+      ':hover': 'translateY(-2px)',
+      ':active': 'translateY(1px)',
     },
     transitionDuration: {
       default: '0.2s',
       ':active': '0.05s',
     },
-    transitionProperty: 'scale, color, background-color',
+    transitionProperty: 'transform, color, background-color, box-shadow, border-color',
   },
   pink: {
     color: {
@@ -68,10 +74,14 @@ const styles = stylex.create({
       ':focus-visible': vars['--color-fd-primary'],
       ':hover': vars['--color-fd-primary'],
     },
-    backgroundColor: {
-      default: vars['--color-fd-primary'],
-      ':focus-visible': `color-mix(in srgb, ${vars['--color-fd-primary']} 10%, transparent)`,
-      ':hover': `color-mix(in srgb, ${vars['--color-fd-primary']} 10%, transparent)`,
+    backgroundImage: {
+      default: `linear-gradient(135deg, ${vars['--color-fd-primary']} 0%, color-mix(in srgb, ${vars['--color-fd-primary']} 72%, white) 100%)`,
+      ':focus-visible': `linear-gradient(135deg, color-mix(in srgb, ${vars['--color-fd-primary']} 14%, transparent) 0%, color-mix(in srgb, ${vars['--color-fd-primary']} 8%, white) 100%)`,
+      ':hover': `linear-gradient(135deg, color-mix(in srgb, ${vars['--color-fd-primary']} 14%, transparent) 0%, color-mix(in srgb, ${vars['--color-fd-primary']} 8%, white) 100%)`,
+    },
+    boxShadow: {
+      default: `0 14px 34px color-mix(in srgb, ${vars['--color-fd-primary']} 28%, transparent)`,
+      ':hover': `0 18px 42px color-mix(in srgb, ${vars['--color-fd-primary']} 34%, transparent)`,
     },
     borderColor: vars['--color-fd-primary'],
   },
@@ -81,10 +91,14 @@ const styles = stylex.create({
       ':focus-visible': vars['--color-fd-accent-foreground'],
       ':hover': vars['--color-fd-accent-foreground'],
     },
-    backgroundColor: {
-      default: vars['--color-fd-accent-foreground'],
-      ':focus-visible': `color-mix(in srgb, ${vars['--color-fd-accent-foreground']} 10%, transparent)`,
-      ':hover': `color-mix(in srgb, ${vars['--color-fd-accent-foreground']} 10%, transparent)`,
+    backgroundImage: {
+      default: `linear-gradient(135deg, ${vars['--color-fd-accent-foreground']} 0%, color-mix(in srgb, ${vars['--color-fd-accent-foreground']} 72%, white) 100%)`,
+      ':focus-visible': `linear-gradient(135deg, color-mix(in srgb, ${vars['--color-fd-accent-foreground']} 16%, transparent) 0%, color-mix(in srgb, ${vars['--color-fd-accent-foreground']} 10%, white) 100%)`,
+      ':hover': `linear-gradient(135deg, color-mix(in srgb, ${vars['--color-fd-accent-foreground']} 16%, transparent) 0%, color-mix(in srgb, ${vars['--color-fd-accent-foreground']} 10%, white) 100%)`,
+    },
+    boxShadow: {
+      default: `0 14px 34px color-mix(in srgb, ${vars['--color-fd-accent-foreground']} 24%, transparent)`,
+      ':hover': `0 18px 42px color-mix(in srgb, ${vars['--color-fd-accent-foreground']} 30%, transparent)`,
     },
     borderColor: vars['--color-fd-accent-foreground'],
   },
