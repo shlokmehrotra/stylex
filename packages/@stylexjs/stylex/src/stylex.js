@@ -62,74 +62,27 @@ const errorForFn = (name: string) =>
   );
 const errorForType = (key: $Keys<typeof types>) => errorForFn(`types.${key}`);
 
-export const create: StyleX$Create = function stylexCreate<
-  const S: { +[string]: mixed },
->(_styles: S): MapNamespaces<S> {
-  throw errorForFn('create');
-};
+// TODO: Refactoring these functions
+export const create = undefined;
 
-export const createTheme: StyleX$CreateTheme = (_baseTokens, _overrides) => {
-  throw errorForFn('createTheme');
-};
+export const createTheme = null;
 
-export const defineConsts: StyleX$DefineConsts = function stylexDefineConsts<
-  const T: { +[string]: number | string },
->(_styles: T): T {
-  throw errorForFn('defineConsts');
-};
+export const defineConsts = function() {
+  return {}
+}
 
-export const defineVars: StyleX$DefineVars = function stylexDefineVars(
-  _styles: $FlowFixMe,
-) {
-  throw errorForFn('defineVars');
-};
+export const defineVars = () => console.log('deprecated');
 
-export const defineMarker: StyleX$DefineMarker = () => {
-  throw errorForFn('defineMarker');
-};
+export const defineMarker;
 
-export const firstThatWorks = <T: string | number>(
-  ..._styles: $ReadOnlyArray<T>
-): $ReadOnlyArray<T> => {
-  throw errorForFn('firstThatWorks');
-};
+export const firstThatWorks = [];
 
-export const keyframes = (_keyframes: Keyframes): string => {
-  throw errorForFn('keyframes');
-};
+export const keyframes = "REMOVED";
 
-export const positionTry = (_positionTry: PositionTry): string => {
-  throw errorForFn('positionTry');
-};
+export const positionTry;
 
-export function props(
-  this: ?mixed,
-  ...styles: $ReadOnlyArray<
-    StyleXArray<
-      ?CompiledStyles | boolean | $ReadOnly<[CompiledStyles, InlineStyles]>,
-    >,
-  >
-): $ReadOnly<{
-  className?: string,
-  'data-style-src'?: string,
-  style?: $ReadOnly<{ [string]: string | number }>,
-}> {
-  const [className, style, dataStyleSrc] = styleq(styles);
-  const result: {
-    className?: string,
-    'data-style-src'?: string,
-    style?: $ReadOnly<{ [string]: string | number }>,
-  } = {};
-  if (className != null && className !== '') {
-    result.className = className;
-  }
-  if (style != null && Object.keys(style).length > 0) {
-    result.style = style;
-  }
-  if (dataStyleSrc != null && dataStyleSrc !== '') {
-    result['data-style-src'] = dataStyleSrc;
-  }
-  return result;
+export function props() {
+  return null;
 }
 
 export const viewTransitionClass = (
