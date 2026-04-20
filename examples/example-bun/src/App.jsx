@@ -9,7 +9,7 @@ import * as React from 'react';
 import * as stylex from '@stylexjs/stylex';
 import { colors, fonts, sizes } from './globalTokens.stylex';
 
-export default function App() {
+export function App() {
   return (
     <main {...stylex.props(styles.main)}>
       <div {...stylex.props(styles.card)}>
