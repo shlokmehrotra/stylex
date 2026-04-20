@@ -11,7 +11,7 @@ import * as stylex from '@stylexjs/stylex';
 import { Button } from '@stylexjs/shared-ui';
 import { tokens } from '@stylexjs/shared-ui/tokens.stylex';
 
-export default function App() {
+export function App() {
   const [count, setCount] = useState(0);
 
   return (
