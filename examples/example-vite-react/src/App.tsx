@@ -62,7 +62,7 @@ export default function App() {
             {...stylex.props(styles.secondaryButton)}
             onClick={() => setShowLaunchPanel((value) => !value)}
           >
-            Toggle launch panel
+            Toggle launch readiness
           </button>
           <p>
             Edit <code>src/App.tsx</code> and save to test HMR
