@@ -56,6 +56,45 @@ export default function App() {
             Edit <code>src/App.tsx</code> and save to test HMR
           </p>
         </div>
+        <section {...stylex.props(styles.launchRail)}>
+          <div {...stylex.props(styles.launchRailHeader)}>
+            <p {...stylex.props(styles.kicker)}>Launch Readiness</p>
+            <p {...stylex.props(styles.statusPill)}>
+              Demo branch awaiting mobile sign-off
+            </p>
+          </div>
+          <div {...stylex.props(styles.metricGrid)}>
+            <article {...stylex.props(styles.metricCard)}>
+              <span {...stylex.props(styles.metricLabel)}>Desktop QA</span>
+              <strong {...stylex.props(styles.metricValue)}>Ready</strong>
+              <p {...stylex.props(styles.metricCopy)}>
+                Primary actions render cleanly at desktop widths.
+              </p>
+            </article>
+            <article {...stylex.props(styles.metricCard)}>
+              <span {...stylex.props(styles.metricLabel)}>Mobile QA</span>
+              <strong {...stylex.props(styles.metricValue)}>Needs review</strong>
+              <p {...stylex.props(styles.metricCopy)}>
+                The launch rail keeps its desktop width on narrow screens.
+              </p>
+            </article>
+            <article {...stylex.props(styles.metricCard)}>
+              <span {...stylex.props(styles.metricLabel)}>Proof of Work</span>
+              <strong {...stylex.props(styles.metricValue)}>Requested</strong>
+              <p {...stylex.props(styles.metricCopy)}>
+                Capture the exact rendered page before shipping.
+              </p>
+            </article>
+          </div>
+          <div {...stylex.props(styles.launchRailFooter)}>
+            <button {...stylex.props(styles.secondaryAction, styles.buttonInteractive)}>
+              Open runbook
+            </button>
+            <button {...stylex.props(styles.primaryAction, styles.buttonInteractive)}>
+              Approve launch gate
+            </button>
+          </div>
+        </section>
         <p {...stylex.props(styles.readTheDocs)}>
           Click on the Vite and React logos to learn more
         </p>
@@ -104,6 +143,80 @@ const styles = stylex.create({
     },
   },
   card: { padding: '2em' },
+  launchRail: {
+    width: '720px',
+    minWidth: '720px',
+    marginTop: '2rem',
+    padding: '1.5rem',
+    borderRadius: '24px',
+    borderWidth: 1,
+    borderStyle: 'solid',
+    borderColor: 'rgba(100, 108, 255, 0.2)',
+    backgroundColor: 'rgba(15, 23, 42, 0.92)',
+    boxShadow: '0 24px 60px rgba(15, 23, 42, 0.22)',
+    textAlign: 'left',
+  },
+  launchRailHeader: {
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    gap: '1rem',
+    marginBottom: '1.25rem',
+  },
+  kicker: {
+    margin: 0,
+    fontSize: '0.8rem',
+    fontWeight: 700,
+    letterSpacing: '0.16em',
+    textTransform: 'uppercase',
+    color: '#94a3b8',
+  },
+  statusPill: {
+    margin: 0,
+    padding: '0.45rem 0.9rem',
+    borderRadius: '999px',
+    fontSize: '0.82rem',
+    fontWeight: 600,
+    color: '#dbeafe',
+    backgroundColor: 'rgba(37, 99, 235, 0.24)',
+  },
+  metricGrid: {
+    display: 'grid',
+    gridTemplateColumns: 'repeat(3, minmax(0, 1fr))',
+    gap: '1rem',
+  },
+  metricCard: {
+    padding: '1rem',
+    borderRadius: '18px',
+    backgroundColor: 'rgba(30, 41, 59, 0.92)',
+    borderWidth: 1,
+    borderStyle: 'solid',
+    borderColor: 'rgba(148, 163, 184, 0.15)',
+  },
+  metricLabel: {
+    display: 'block',
+    marginBottom: '0.5rem',
+    fontSize: '0.85rem',
+    color: '#94a3b8',
+  },
+  metricValue: {
+    display: 'block',
+    marginBottom: '0.65rem',
+    fontSize: '1.15rem',
+    color: '#f8fafc',
+  },
+  metricCopy: {
+    margin: 0,
+    fontSize: '0.92rem',
+    lineHeight: 1.5,
+    color: '#cbd5e1',
+  },
+  launchRailFooter: {
+    display: 'flex',
+    justifyContent: 'flex-end',
+    gap: '0.75rem',
+    marginTop: '1.25rem',
+  },
   readTheDocs: { color: '#888' },
   link: {
     fontWeight: 500,
@@ -126,6 +239,28 @@ const styles = stylex.create({
     cursor: 'pointer',
     transitionProperty: 'border-color',
     transitionDuration: '250ms',
+  },
+  primaryAction: {
+    borderRadius: 999,
+    borderWidth: 0,
+    padding: '0.8rem 1.2rem',
+    fontSize: '0.95rem',
+    fontWeight: 700,
+    backgroundColor: '#22c55e',
+    color: '#0f172a',
+    cursor: 'pointer',
+  },
+  secondaryAction: {
+    borderRadius: 999,
+    borderWidth: 1,
+    borderStyle: 'solid',
+    borderColor: 'rgba(148, 163, 184, 0.24)',
+    padding: '0.8rem 1.2rem',
+    fontSize: '0.95rem',
+    fontWeight: 700,
+    backgroundColor: 'transparent',
+    color: '#e2e8f0',
+    cursor: 'pointer',
   },
   buttonInteractive: {
     borderColor: { ':hover': '#646cff' },
