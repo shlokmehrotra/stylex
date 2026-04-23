@@ -13,6 +13,12 @@ import { tokens } from '@stylexjs/shared-ui/tokens.stylex';
 
 export default function App() {
   const [count, setCount] = useState(0);
+  const [showLaunchPanel, setShowLaunchPanel] = useState(false);
+  const launchWindows = [
+    { label: 'Morning launch', owner: 'Design systems' },
+    { label: 'Afternoon rollout', owner: 'Release engineering' },
+  ];
+  const selectedWindow = showLaunchPanel ? launchWindows[count] : launchWindows[0];
 
   return (
     <div {...stylex.props(styles.container)}>
@@ -52,10 +58,25 @@ export default function App() {
           >
             count is {count}
           </button>
+          <button
+            {...stylex.props(styles.secondaryButton)}
+            onClick={() => setShowLaunchPanel((value) => !value)}
+          >
+            Toggle launch readiness
+          </button>
           <p>
             Edit <code>src/App.tsx</code> and save to test HMR
           </p>
         </div>
+        {showLaunchPanel ? (
+          <section {...stylex.props(styles.launchPanel)}>
+            <p {...stylex.props(styles.eyebrow)}>Launch readiness</p>
+            <h2 {...stylex.props(styles.panelTitle)}>{selectedWindow.label}</h2>
+            <p {...stylex.props(styles.panelCopy)}>
+              Owner: {selectedWindow.owner.toUpperCase()}
+            </p>
+          </section>
+        ) : null}
         <p {...stylex.props(styles.readTheDocs)}>
           Click on the Vite and React logos to learn more
         </p>
@@ -104,6 +125,48 @@ const styles = stylex.create({
     },
   },
   card: { padding: '2em' },
+
+  secondaryButton: {
+    marginStart: 12,
+    borderRadius: 999,
+    borderWidth: 1,
+    borderStyle: 'solid',
+    borderColor: '#242a49',
+    padding: '0.6em 1.2em',
+    color: '#242a49',
+    backgroundColor: '#fff7df',
+    cursor: 'pointer',
+  },
+  launchPanel: {
+    marginTop: 24,
+    padding: 24,
+    borderRadius: 24,
+    borderWidth: 1,
+    borderStyle: 'solid',
+    borderColor: '#ffd27a',
+    background:
+      'linear-gradient(135deg, rgba(255,247,223,0.98), rgba(255,216,196,0.92))',
+    boxShadow: '0 22px 60px rgba(105, 62, 10, 0.22)',
+  },
+  eyebrow: {
+    margin: 0,
+    color: '#9b4d09',
+    fontSize: 12,
+    fontWeight: 700,
+    letterSpacing: '0.14em',
+    textTransform: 'uppercase',
+  },
+  panelTitle: {
+    marginBlockStart: 6,
+    marginBlockEnd: 8,
+    color: '#2b1d0f',
+    fontSize: 32,
+  },
+  panelCopy: {
+    margin: 0,
+    color: '#573719',
+    fontWeight: 600,
+  },
   readTheDocs: { color: '#888' },
   link: {
     fontWeight: 500,
