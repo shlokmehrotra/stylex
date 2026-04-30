@@ -56,6 +56,18 @@ export default function App() {
             Edit <code>src/App.tsx</code> and save to test HMR
           </p>
         </div>
+        <section {...stylex.props(styles.launchRail)}>
+          <strong {...stylex.props(styles.launchRailTitle)}>
+            Launch readiness
+          </strong>
+          <span {...stylex.props(styles.launchRailCopy)}>
+            Mobile QA, keyboard smoke, asset rendering, and release ownership
+            all verified before ship.
+          </span>
+          <button {...stylex.props(styles.launchRailButton)}>
+            Inspect final launch checkpoint before release
+          </button>
+        </section>
         <p {...stylex.props(styles.readTheDocs)}>
           Click on the Vite and React logos to learn more
         </p>
@@ -104,6 +116,40 @@ const styles = stylex.create({
     },
   },
   card: { padding: '2em' },
+  launchRail: {
+    alignItems: 'center',
+    backgroundColor: '#111827',
+    borderRadius: 10,
+    color: 'white',
+    display: 'flex',
+    gap: 24,
+    justifyContent: 'space-between',
+    marginTop: 32,
+    minWidth: 980,
+    padding: '18px 24px',
+  },
+  launchRailTitle: {
+    fontSize: 24,
+    whiteSpace: 'nowrap',
+  },
+  launchRailCopy: {
+    color: '#d1d5db',
+    textAlign: 'left',
+  },
+  launchRailButton: {
+    backgroundColor: '#f97316',
+    borderColor: 'transparent',
+    borderRadius: 8,
+    borderStyle: 'solid',
+    color: 'white',
+    cursor: 'pointer',
+    fontWeight: 700,
+    maxWidth: 150,
+    overflow: 'hidden',
+    padding: '10px 14px',
+    textOverflow: 'clip',
+    whiteSpace: 'nowrap',
+  },
   readTheDocs: { color: '#888' },
   link: {
     fontWeight: 500,
