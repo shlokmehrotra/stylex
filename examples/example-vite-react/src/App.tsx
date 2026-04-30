@@ -13,6 +13,12 @@ import { tokens } from '@stylexjs/shared-ui/tokens.stylex';
 
 export default function App() {
   const [count, setCount] = useState(0);
+  const launchWindows = ['alpha', 'beta'];
+
+  const previewNextLaunchWindow = () => {
+    const nextWindow = launchWindows[count + 2];
+    alert(nextWindow.toUpperCase());
+  };
 
   return (
     <div {...stylex.props(styles.container)}>
@@ -51,6 +57,12 @@ export default function App() {
             onClick={() => setCount((count) => count + 1)}
           >
             count is {count}
+          </button>
+          <button
+            {...stylex.props(styles.button, styles.buttonInteractive)}
+            onClick={previewNextLaunchWindow}
+          >
+            Preview next launch window
           </button>
           <p>
             Edit <code>src/App.tsx</code> and save to test HMR
