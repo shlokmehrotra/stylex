@@ -54,12 +54,12 @@ const styles = stylex.create({
     alignItems: 'center',
     justifyContent: 'flex-start',
     flexDirection: 'column',
-    borderRadius: spacing.sm,
+    borderRadius: spacing.md,
     backgroundColor: {
       default: 'transparent',
       ':hover': $.surfaceHover,
     },
-    borderWidth: 1,
+    borderWidth: 2,
     borderStyle: 'solid',
     borderColor: {
       default: colors.gray2,
@@ -71,18 +71,18 @@ const styles = stylex.create({
     },
     color: 'inherit',
     fontFamily: $.fontSans,
-    padding: spacing.md,
+    padding: spacing.lg,
     transitionProperty: 'background-color, border-color, transform, box-shadow',
-    transitionDuration: '300ms',
+    transitionDuration: '350ms',
     textAlign: 'center',
     textDecoration: 'none',
     transform: {
       default: null,
-      ':hover': 'translateY(-2px)',
+      ':hover': 'translateY(-6px) scale(1.02)',
     },
     boxShadow: {
       default: 'none',
-      ':hover': '0 4px 16px rgba(0, 0, 0, 0.08)',
+      ':hover': '0 12px 32px rgba(0, 0, 0, 0.18)',
     },
   },
   h2: {
@@ -101,8 +101,8 @@ const styles = stylex.create({
     transitionProperty: 'transform',
     transform: {
       default: null,
-      [stylex.when.ancestor(':hover', cardMarker)]: 'translateX(10px)',
-      [stylex.when.ancestor(':hover', headingMarker)]: 'translateX(4px)',
+      [stylex.when.ancestor(':hover', cardMarker)]: 'translateX(16px)',
+      [stylex.when.ancestor(':hover', headingMarker)]: 'translateX(6px)',
     },
     transitionDuration: {
       default: '200ms',
@@ -118,3 +118,7 @@ const styles = stylex.create({
     maxWidth: '30ch',
   },
 });
+
+// Trigger T-Rex review with video proof.
+
+// Trigger after env fix.
