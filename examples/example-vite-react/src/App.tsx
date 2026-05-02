@@ -43,6 +43,10 @@ export default function App() {
         </div>
         <h1 {...stylex.props(styles.h1)}>Vite + React</h1>
         <div {...stylex.props(styles.card)}>
+          <p {...stylex.props(styles.motionCue)}>
+            Local review video smoke: hover or click the counter to see the
+            card lift.
+          </p>
           <Button onClick={() => console.log('External lib works!')}>
             Test External Lib
           </Button>
@@ -103,7 +107,19 @@ const styles = stylex.create({
       '@media (prefers-reduced-motion: no-preference)': 'infinite',
     },
   },
-  card: { padding: '2em' },
+  card: {
+    padding: '2em',
+    borderRadius: 16,
+    transitionProperty: 'transform, box-shadow',
+    transitionDuration: '250ms',
+    transform: { ':hover': 'translateY(-4px)' },
+    boxShadow: { ':hover': '0 16px 40px rgba(100, 108, 255, 0.22)' },
+  },
+  motionCue: {
+    color: '#6b7280',
+    fontSize: 14,
+    marginTop: 0,
+  },
   readTheDocs: { color: '#888' },
   link: {
     fontWeight: 500,
