@@ -43,6 +43,12 @@ export default function App() {
         </div>
         <h1 {...stylex.props(styles.h1)}>Vite + React</h1>
         <div {...stylex.props(styles.card)}>
+          <div {...stylex.props(styles.motionPanel)}>
+            <span {...stylex.props(styles.motionDot)} />
+            <p {...stylex.props(styles.motionCue)}>
+              Local review video smoke 4: record this automatic teal sweep.
+            </p>
+          </div>
           <Button onClick={() => console.log('External lib works!')}>
             Test External Lib
           </Button>
@@ -67,6 +73,12 @@ export default function App() {
 const spin = stylex.keyframes({
   from: { transform: 'rotate(0deg)' },
   to: { transform: 'rotate(360deg)' },
+});
+
+const sweep = stylex.keyframes({
+  '0%': { transform: 'translateX(0)' },
+  '50%': { transform: 'translateX(190px)' },
+  '100%': { transform: 'translateX(0)' },
 });
 
 const styles = stylex.create({
@@ -104,6 +116,40 @@ const styles = stylex.create({
     },
   },
   card: { padding: '2em' },
+  motionPanel: {
+    width: 240,
+    minHeight: 76,
+    margin: '0 auto 1rem',
+    padding: 16,
+    borderRadius: 16,
+    backgroundColor: '#ecfeff',
+    boxShadow: 'inset 0 0 0 1px #67e8f9',
+    overflow: 'hidden',
+  },
+  motionDot: {
+    display: 'block',
+    width: 34,
+    height: 34,
+    borderRadius: 999,
+    backgroundColor: '#0f766e',
+    boxShadow: '0 0 22px rgba(15, 118, 110, 0.55)',
+    animationName: { '@media (prefers-reduced-motion: no-preference)': sweep },
+    animationDuration: {
+      '@media (prefers-reduced-motion: no-preference)': '1.6s',
+    },
+    animationTimingFunction: {
+      '@media (prefers-reduced-motion: no-preference)': 'ease-in-out',
+    },
+    animationIterationCount: {
+      '@media (prefers-reduced-motion: no-preference)': 'infinite',
+    },
+  },
+  motionCue: {
+    color: '#115e59',
+    fontSize: 13,
+    fontWeight: 600,
+    marginBottom: 0,
+  },
   readTheDocs: { color: '#888' },
   link: {
     fontWeight: 500,
