@@ -42,6 +42,11 @@ export const THEMES = [
   { name: 'Blue', theme: blueTheme },
 ] as const;
 
+const activeThemePulse = stylex.keyframes({
+  '0%, 100%': { transform: 'scale(1)', opacity: 0.75 },
+  '50%': { transform: 'scale(1.35)', opacity: 1 },
+});
+
 type Props = Readonly<{
   themeIndex: number;
   onThemeChange: (_index: number) => void;
@@ -70,7 +75,13 @@ export default function InteractiveCard({
             )}
             onClick={() => onThemeChange(i)}
           >
-            <span {...stylex.props(t.theme, styles.dot)} />
+            <span
+              {...stylex.props(
+                t.theme,
+                styles.dot,
+                i === themeIndex && styles.activeDot,
+              )}
+            />
             {t.name}
           </button>
         ))}
@@ -197,6 +208,12 @@ const styles = stylex.create({
     borderRadius: '50%',
     flexShrink: 0,
     backgroundColor: colors.accent,
+  },
+  activeDot: {
+    animationName: activeThemePulse,
+    animationDuration: '1.6s',
+    animationTimingFunction: 'ease-in-out',
+    animationIterationCount: 'infinite',
   },
   divider: {
     height: 2,
