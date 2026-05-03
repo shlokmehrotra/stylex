@@ -70,7 +70,13 @@ export default function InteractiveCard({
             )}
             onClick={() => onThemeChange(i)}
           >
-            <span {...stylex.props(t.theme, styles.dot)} />
+            <span
+              {...stylex.props(
+                t.theme,
+                styles.dot,
+                i === themeIndex && styles.activeDot,
+              )}
+            />
             {t.name}
           </button>
         ))}
@@ -126,6 +132,17 @@ export default function InteractiveCard({
 }
 
 const DARK = '@media (prefers-color-scheme: dark)' as const;
+
+const activeThemePulse = stylex.keyframes({
+  '0%, 100%': {
+    opacity: 0.75,
+    transform: 'scale(1)',
+  },
+  '50%': {
+    opacity: 1,
+    transform: 'scale(1.35)',
+  },
+});
 
 const styles = stylex.create({
   card: {
@@ -197,6 +214,12 @@ const styles = stylex.create({
     borderRadius: '50%',
     flexShrink: 0,
     backgroundColor: colors.accent,
+  },
+  activeDot: {
+    animationName: activeThemePulse,
+    animationDuration: '1.6s',
+    animationIterationCount: 'infinite',
+    animationTimingFunction: 'ease-in-out',
   },
   divider: {
     height: 2,
