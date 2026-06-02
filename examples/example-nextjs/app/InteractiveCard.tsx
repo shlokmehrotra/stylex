@@ -120,6 +120,12 @@ export default function InteractiveCard({
         >
           +
         </button>
+        <button
+          {...stylex.props(styles.counterButton, styles.resetButton)}
+          onClick={() => setCount(count + 1)}
+        >
+          Reset
+        </button>
       </div>
     </div>
   );
@@ -240,6 +246,12 @@ const styles = stylex.create({
       default: null,
       ':active': 'scale(0.95)',
     },
+  },
+  resetButton: {
+    width: 'auto',
+    paddingInline: spacing.sm,
+    fontSize: text.sm,
+    fontWeight: 600,
   },
   count: {
     fontSize: text.h2,
